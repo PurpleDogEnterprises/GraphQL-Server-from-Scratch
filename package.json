@@ -18,6 +18,8 @@
   "homepage": "https://github.com/PurpleDogEnterprises/GraphQL-Server-from-Scratch#readme",
   "dependencies": {
     "babel-preset-node5": "^12.0.1",
+    "faker": "^4.1.0",
+    "lodash": "^4.17.4",
     "pg": "^6.1.4",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.2"
