@@ -1,4 +1,7 @@
 import Sequelize from 'sequelize';
+//Faker populates fictional data
+import Faker from 'faker';
+import _ from 'lodash';
 
 const Conn = new Sequelize(
   'relay',
@@ -38,6 +41,26 @@ const Post = Conn.define('post', {
   }
 });
 
+// Relations
+Person.hasMany(Post);
+Post.belongsTo(Person);
+
+Conn.sync({ force: true }).then(()=> {
+  _.times(10, ()=> {
+    return Person.create({
+      firstName: Faker.name.firstName(),
+      lastName: Faker.name.lastName(),
+      email: Faker.internet.email()
+    }).then(person => {
+      return person.createPost({
+        title: `Sample post by ${person.firstName}`,
+        content: 'here is some content'
+      });
+    });
+  });
+});
+
+export default Conn;
 // Relations
 Person.hasMany(Post);
 Post.belongsTo(Person);
