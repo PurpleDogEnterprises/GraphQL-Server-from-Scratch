@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-//Faker populates fictional data
+//Faker populates fictional data (see comment below)
 import Faker from 'faker';
 import _ from 'lodash';
 
